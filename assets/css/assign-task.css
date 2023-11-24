@@ -1,0 +1,30 @@
+th{
+    padding-right:10px;
+    padding-left: 15px;
+}
+
+.main-content{
+    background-color: rgb(243, 89, 62);
+    min-height: 80vh;
+    border-radius: 15px;
+    margin-top :10px;
+    display: flex;
+    flex-direction: row;
+}
+.performance-submitted,.task-assign-container{
+    background-color: rgb(228, 149, 149);
+    border-radius: 15px;
+    width:48%;
+    height:100%;
+    min-height:76vh;
+    margin: auto;
+    padding-top:5px;
+    margin-top:.5em;
+}
+.performance-submitted{
+    text-align: center;
+}
+
+.task-assign-container{
+ text-align: center;   
+}

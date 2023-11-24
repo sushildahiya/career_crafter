@@ -1,0 +1,66 @@
+.employee-review-container{
+    margin:auto;
+    margin-top:5px;
+    width:99%;
+    background-color: rgb(231, 106, 106);
+    border-radius: 10px;
+    padding-top: 10px;
+    min-height: 80vh;;
+}
+.review-inner-container {
+    width:60%;
+    background-color: rgb(212, 160, 160);
+    margin: auto;
+    min-height:76vh;
+    border-radius: 10px;
+    margin-bottom:.5em;
+    padding:.5em;
+    position: relative;
+}
+ tr th, tr td{
+    padding-left:5em;
+ }
+ .employee-info{
+    display: flex;
+     justify-content: space-evenly;
+ }
+ .employee-info p h3{
+    background-color: rgb(240, 240, 240);
+    padding:.3em;
+    margin:0px;
+    border-radius:5px;
+    min-width: 50px;
+    text-align: center;
+ }
+ .employee-content{
+    background-color: rgb(206, 37, 37);
+    border-radius:10px;
+    margin:.5em;
+ }
+ .employee-goal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding:.2em;
+ }
+  .employee-goal h4{
+    margin: 0px;
+  }
+
+ .employee-description-rating{
+    padding-left:2em;
+    padding-bottom: .4em;;
+}
+form input[type='text']{
+    width:50px;
+}
+form textarea{
+    width:400px;
+    height:50px;
+    margin-bottom:3em;
+}
+form input[type='submit']{
+    position: absolute;
+    left:26em;
+    bottom:20px;
+}

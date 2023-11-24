@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="/css/goals.css"/>
+<div class="goals-content">
+    <% if (user.performance.goal_setting_unlocked == false) { %>
+        <div class="goal-locked">
+        <div class="goals-image">
+            <img src="/images/locked.png"/>
+        </div>
+        <h2>Goals have not been unlocked, wait for it to be unlocked.</h2>
+    </div>
+    <% } else if (user.performance.goals.length === 0 ) { %>
+        <div class="goal-unlocked">
+        <div class="goals-image">
+            <img src="/images/goals.jpg"/>
+        </div>
+        <h2>Goals have not been defined; please <a href="#" id="myBtn">Add a goal</a></h2>
+    </div>
+    <% } else { %>
+        <%if(user.performance.is_goal_submitted){%>
+            <form method="POST" action="/goals/submit-assessment">
+            <% } %>
+        <% for (let i = 0; i < user.performance.goals.length; i++) { %>
+            <div class="goal-container">
+                <div class="goal-wrapper">
+                    <div class="goal-name">
+                        <span>Goal </span>
+                        <strong><%=user.performance.goals[i].goal%></strong>
+                    </div>
+                    <div class="goal-weightage">
+                        <span>Weightage </span>
+                        <strong><%=user.performance.goals[i].weightage%></strong>
+                    </div>
+                    <div class="goal-target">
+                        <span>Target </span>
+                        <strong><%=user.performance.goals[i].target%></strong>
+                    </div>
+                </div>
+                <div class="self-assessment-desc">
+                    <div class="goal-description">
+                        <span>Description </span>
+                            <strong><%=user.performance.goals[i].description%></strong>
+                    </div>
+                    <%if(user.performance.is_goal_submitted && !user.performance.is_self_assessment_submitted){%>
+                        <textarea type="textarea" name="assigne_review<%=i%>" placeholder="Assignee Review"></textarea>
+    
+                        <% } %>
+                </div>
+                
+                    <%if(user.performance.feedback_given ){%>
+                        <div class="rating">
+                            <span>Rating</span>
+                                <strong><%=user.performance.goals[i].rating%></strong>
+                        </div>  
+                        <% } %>
+            </div>
+        <% } %>
+        <%if(user.performance.feedback_given ){%>
+            <div class="rating"  class="bottom-position-comment">
+                <span>Feedback Comment</span>
+                    <strong><%=user.performance.comment%></strong>
+            </div>  
+            <% } %>
+        <%if(!user.performance.is_goal_submitted){%>
+        <a href="#" id="myBtn" class="bottom-position">Add anthoer goal</a>
+        <form method="POST" action="/goals/submit-goals">
+            <input type="submit"  class="bottom-position-submit" value="Submit Goals"/>
+        </form>
+        <% } %>
+        <%if(user.performance.is_goal_submitted && !user.performance.is_self_assessment_submitted){%>
+            
+                <input type="submit" value="Submit Self Assessment"  class="bottom-position-submit"/>
+            </form>
+    <% } %>
+    <% } %>
+    
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <br/>
+            <br/>
+         
+            <form action="/goals/add-goal" method="POST">
+                <label for="goal">Goal</label>
+                <br/>
+                <input type="text" name="goal" placeholder="Goal"/>
+                <br/>
+                <br/>
+                <label for="weightage">Weightage</label>
+                <br/>
+                <input type="text" name="weightage" placeholder="Weightage"/>
+                <br/>
+                <br/>
+                <label for="target">Target</label>
+                <br/>
+                <input type="text" name="target" placeholder="Target"/>
+                <br/>
+                <br/>
+                <label for="description">Description</label>
+                <br/>
+                <textarea type="textarea" name="description" placeholder="Description"></textarea>
+                <br/>
+                <br/>
+                <div class="submit-btn">
+                    <input type="submit" value="Add Goal"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/goals.js"></script>

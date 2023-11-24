@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/css/feedback.css"/>
+<div class="employee-review-container">
+    <div class="review-inner-container">
+
+    <%if(id==null){%>
+        <table>
+            <thead >
+                <tr class="table-head">
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Email</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let i=0;i<user.assigned_reviews.length;i++){%>
+                    <tr>
+                        <td><strong><%=user.assigned_reviews[i]._doc.employee_id%></strong></td>
+                        <td><strong><%=user.assigned_reviews[i]._doc.name%></strong></td>
+                        <td><strong><%=user.assigned_reviews[i]._doc.email%></strong></td>
+                        <td>
+                            <a href="/feedback/<%=user.assigned_reviews[i].id%>">Review</a>
+                        </td>
+                    </tr>
+                    <%}%>   
+            </tbody>
+        </table>
+    </div>
+    <%} else {%>
+                <div class="employee-rating">
+                    <div class="employee-info">
+                        <p>Employee Name: <h3><%=employee.name%></h3></p>
+                        <p>Employee ID: <h3><%=employee.employee_id%></h3></p>
+                        <p>Employee Email: <h3><%=employee.email%></h3></p>
+                    </div>
+               
+                <form method="POST" action="/feedback/submit-feedback/<%=employee.id%>">
+                <%for(let i=0;i<employee.performance.goals.length;i++){%>
+                    <div class="employee-content">
+                        <div class="employee-goal">
+                            <h4>Goal: <strong><%=employee.performance.goals[i].goal%></strong></h4>
+                            <h4>Target: <strong><%=employee.performance.goals[i].target%></strong></h4>
+                            <h4>Weightage: <strong><%=employee.performance.goals[i].weightage%></strong></h4>
+                        </div>
+                        <div class="employee-description-rating"> <p>Description: <strong><%=employee.performance.goals[i].description%></strong></p>
+                            <p>Self Assessmenet: <strong><%=employee.performance.reviews[i]%></strong></p>
+                            
+                            <strong>Rating: </strong>
+                            <input type="text" name="rating_<%=i%>" required/></div>
+                           
+                    </div>
+                    
+                <%}%>
+                <label for="comment">Comment: </label><br/>
+                <textarea type="textarea" name="comment" placeholder="Feedback Comment" required></textarea>
+                <br/>
+                <input type="submit" value ="Submit Review"/>
+        <%}%>
+    </form>
+</div>
+</div>

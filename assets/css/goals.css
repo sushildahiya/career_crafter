@@ -1,0 +1,138 @@
+.goals-content{
+    margin: auto;
+    margin-top: 5px;
+    width:98vw;
+    height: 80vh;
+    min-width: 500px;
+    background: linear-gradient(to right, #fa7057, #fd7b99);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.20), 
+			0 6px 6px rgba(0,0,0,0.18);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    position: relative;
+}
+.goals-image{
+    height:250px;
+    width:250px;
+}
+.goal-locked{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.goals-image img{
+    object-fit: cover;
+    height:250px;
+    width:250px;
+    border-radius: 25px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .submit-btn{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.goal-unlocked{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top:20px;
+}
+.goal-container{
+  height:110px;
+  background-color: #f19393;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  margin:5px;
+}
+.goal-wrapper{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  justify-content: space-evenly;
+  width:100%;
+}
+.goal-name, .goal-weightage, .goal-target{
+  padding: 10px 15px 10px 15px;
+  background-color: #f7acac;
+  border-radius: 5px;
+}
+.goal-description {
+  padding-left:25px;
+  
+}
+.self-assessment-desc{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bottom-position{
+  position: absolute;
+  bottom:70px;
+  left: 26em;
+  font-size:20px;
+  font-weight: 900;
+  color: #fefefe;
+text-decoration: none;
+border-radius: 5px;
+border:1px solid white ;
+padding:5px;
+}
+.bottom-position-submit{
+  position: absolute;
+  bottom:30px;
+  left: 27em;
+  font-size:20px;
+}
+.bottom-position-comment{
+  position: absolute;
+  bottom:60px;
+  left: 27em;
+  font-size:20px;
+}

@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/css/_header.css"/>
+<header>
+    <nav class="nav-container" >
+        <div class="nav-logo">
+            <img src="/images/career-crafter.jpg" alt="logo" height="40px"/>
+        </div>
+        
+        <div class="nav-profile">
+
+            <div id="employee-id"><span><%=user.employee_id%></span></div>
+            <div id="profile-picture" class="dropbtn">
+                <img src="<%= user.avatar%>"/>
+                <div class="dropdown-content">
+                    <%if(user.is_admin_req && !user.is_admin){%>
+                    <!-- <a href="/employee/requestAdmin">Request for Admin</a> -->
+                    <a href="#">Requested for Admin</a>
+                    
+                    <%} else  if(!user.is_admin){%>
+                        <form action="/employee/requestAdmin" method="POST">
+                            <input type="submit" value="Request for Admin"/>
+                        </form>
+                        <%}%>
+                    <a href="/employee/settings">Settings</a>
+                    <a href="/user/sign-out">Signout</a>
+                    </div>
+            </div>
+        </div>
+    </nav>
+    <nav class="employee-nav">
+        <a href="/" <%= currentPage === 'dashboard' ? 'class=active' : '' %>>Dashboard</a>
+        <a href="/goals" <%= currentPage === 'goals' ? 'class=active' : '' %>>Goals</a>
+        <a href="/feedback" <%= currentPage === 'feedback' ? 'class=active' : '' %>>Feedback</a>
+        <% if( user.is_admin){%>
+        <a href="/employees" <%= currentPage === 'employee' ? 'class=active' : '' %>>Employees</a>
+        <a href="/assign-task" <%= currentPage === 'assign-task' ? 'class=active' : '' %>>Assign Task</a>
+        <%}%>
+    </nav>
+    
+</header>
+<script src="/js/_header.js"></script>

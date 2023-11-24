@@ -1,0 +1,137 @@
+.dashboard-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-width: 500px;
+}
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.20), 
+			0 6px 6px rgba(0,0,0,0.18);
+    width:25%;
+    background-color: aqua;
+    height: 60vh;
+    margin:5px;
+    border-radius:10px;
+}
+.profile-container p{
+    margin:7px;
+}
+.profile-container button{
+    width: 100px;
+    height:35px;  
+    border-radius: 5px;  
+}
+.profile-container button a{
+    text-decoration: none;
+}
+.review-forms-container{
+    display:flex;
+    flex-direction: column;
+}
+
+.review-forms-container, .admin-dashboard-content{
+    width:49%;
+    box-shadow: 3px 6px 10px rgba(1,0,0,0.28), 
+    3px 6px 6px rgba(1,0,0,0.22);
+    height: 60vh;
+    margin:5px;
+    border-radius:10px;
+    border:1px solid rgb(197, 182, 182);
+    overflow: hidden;
+}
+
+.admin-dashboard-content{
+    background-color: rgb(245, 245, 245);
+}
+.review-forms-container h3,.review-forms-container h4{
+    text-align: center;
+}
+.review-completed-container,.pending-task{
+    width:25%;
+    box-shadow: 3px 6px 10px rgba(1,0,0,0.28), 
+    3px 6px 6px rgba(1,0,0,0.22);
+    height: 60vh;
+    margin:5px;
+    border-radius:10px;
+    border:1px solid rgb(230, 221, 221);
+
+}
+.pending-task{
+    display: flex;
+    flex-direction: column;
+}
+.pending-task h1{
+    text-align: center;
+}
+.review-completed-container h3,.review-completed-container h4{
+    text-align: center;
+}
+.profile-img{
+    width:150px;
+    height:150px;
+    border-radius: 100%;
+    overflow: hidden;
+    border:2px solid white;
+}
+.profile-img img{
+    object-fit: cover;
+    width:100%;
+    height:100%;
+}
+.total-employee-count, .total-tasks-pending,  .total-admin-count,.total-admin-requests {
+    width:48%;
+    height: 100%;
+    background-color: rgb(189, 207, 207);
+    border-radius:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-dashboard-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.upper-row, .lower-row{
+    width:96%;
+    height:48%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+align-items: center;
+padding:12px;
+}
+
+.total-employee-count p, .total-admin-count p,.total-admin-requests p, .total-tasks-pending p{
+    font-size: 70px;
+    font-weight: bolder;
+    margin:2px;
+}
+
+.total-employee-count h2, .total-admin-count h2{
+    margin: 1px;
+}
+
+#approve-input{
+    display:flex;
+    flex-direction: row;
+}
+.pending-reviews th, .pending-reviews tr td{
+    padding-right:50px;
+}
+.pending-reviews tr td{
+    padding-left:20px;
+}
+.completed-review th, .completed-review td{
+    padding-right:15px;
+    padding-left:10px;
+
+}
+

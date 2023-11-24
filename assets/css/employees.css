@@ -1,0 +1,25 @@
+th, td {
+    padding: 10px;
+  }
+  thead{
+    background-color: rgb(245, 112, 112);
+    border-radius: 10px;
+    margin-top:5px;
+  }
+  tbody{
+    background-color: rgb(243, 169, 169);
+    border-radius: 10px;
+
+  }
+.employee-container{
+  margin: auto;
+  background-color: rgb(212, 164, 156);
+  margin-top:.5em;
+  width:100%;
+  min-height: 80vh;
+  border-radius: 15px;;
+}
+.employee-list-content{
+  width: 70%;
+  margin:auto;
+}

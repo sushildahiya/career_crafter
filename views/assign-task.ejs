@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/css/assign-task.css"/>
+<div class="main-content">
+    <div class="performance-submitted">
+        <h2>Employee's submitted performance</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Contact No.</th>
+                    <th>Email</th>
+                    <th>Delete?</th>
+                </tr>
+            </thead>
+            <%for(let i =0;i<employees.length;i++){%>
+                <%if(employees[i].performance.is_self_assessment_submitted){%>
+                    <tr>
+                        <td><strong><%=employees[i].employee_id%></strong></td>
+                        <td><strong><%=employees[i].name%></strong></td>
+                        <td><strong><%=employees[i].contact_no%></strong></td>
+                        <td><strong><%=employees[i].email%></strong></td>
+                        </tr>
+                        <td>
+                            <form action="/goals/delete/<%=employees[i].id%>" method="POST">
+                                <input type="submit" value="Delete"/>    
+                                </form>
+                        </td>
+                        <%}%>
+                        <%}%>
+            </table>
+    </div>
+    
+    
+     <div class="task-assign-container">
+        <form action="/feedback/assign-task" method="POST">
+            <h1>
+                Set Reviewer
+            </h1>
+            <br/>
+            <h3>Sender Recipient Employee</h3>
+            <select class="form-select form-select" aria-label="Default select example" name="sender" required>
+                <% for(let i = 0; i<employees.length ; i++){ %>
+                    <%if(employees[i].performance.is_self_assessment_submitted && (!employees[i].is_review_assigned)){%>
+                    <option value= <%= employees[i].id %> > <%= employees[i].name %> </option>
+                    <%}%>
+                <%}%>    
+            </select>
+            <div class="reviewee">
+                <h3>Receiver Recipient Employee </h3>
+                  <select class="form-select form-select" aria-label="Default select example" name="receiver" required>
+                      <% for(let i = 0; i<employees.length ; i++){ %>
+                      
+                          <option value= <%= employees[i].id %> > <%= employees[i].name %> </option>
+                          
+                      <%}%>
+                  </select>
+              </div> 
+              <br/>
+              <br/>
+            
+
+            <input type="submit" value="Assign"/>          
+        </form>
+        
+        
+    </div>
+    
+    
+</div>
+

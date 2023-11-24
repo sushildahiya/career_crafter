@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="/css/dashboard.css"/>
+<div class="dashboard-content">
+    <div class="profile-container">
+        <div class="profile-img">
+            <img src="<%= user.avatar%>"/>
+        </div>
+        <p><strong><%=user.name%></strong></p>
+        <p><strong><%=user.employee_id%></strong></p>
+        <p><strong><%=user.email%></strong></p>
+        <p><strong><%=user.contact_no%></strong></p>
+        <button><a href="/employee/settings">Edit</a></button>
+    </div>
+    <% if (user.is_admin){%>
+        <div class="admin-dashboard-content">
+            <div class="upper-row">
+                <div class="total-employee-count">
+                    <h2>Total Employees</h2>
+                    <p><%=totalEmployees%></p>
+                </div>
+                <div class="total-admin-count">
+                    <h2>Total Admins</h2>
+                    <p><%=adminCount%></p>
+                </div>
+            </div>
+            <div class="lower-row">
+                <div class="total-admin-requests">
+                    <h2>Admin Requested</h2>
+                    <p><%=adminReqCount%></p>
+                </div>
+                <div class="total-tasks-pending">
+                    <h2>Task Assign Pending</h2>
+                    <p><%=taskAssignPending%></p>
+                </div>
+            </div>
+           
+           
+        </div>
+        <div class="pending-task">
+            <h1>Admin requested</h1>
+            <div class="admin-req-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Emp ID</th>
+                            <th>Emp Name</th>
+                            <th>Admin Req</th>
+                        </tr>
+                    </thead>
+                <% for(let i=0; i<employees.length;i++){%>
+                    <%if(employees[i].is_admin_req && !employees[i].is_admin){%>
+                        <tr>
+                            <td><%=employees[i].employee_id%></td>
+                            <td><%=employees[i].name%></td>
+                            <td id="approve-input">
+                                <form action="/employee/acceptAdmin/<%= employees[i].id%>" method="POST">
+                                    <input type="submit" value="Accept"/>
+                                </form>
+                            
+                                <form action="/employee/rejectAdmin/<%= employees[i].id%>" method="POST">
+                                    <input type="submit" value="Reject"/>
+                                </form>
+                            </td>
+                        </tr>
+                        <%}%>
+                        <%}%>
+                </table>
+            </div>
+            
+        </div>
+
+        <%} else{%>
+    <div class="review-forms-container">
+        <h3>Pending Reviews</h3>
+        <%if(pendingReviewsCount==0){%>
+            <h4>No pending reviews to be reviewed.</h4>
+            <%}else{%>
+                <table>
+                    <thead>
+                        <tr class="pending-reviews">
+                            <th>Employee ID</th>
+                            <th>Employee Name</th>
+                            <th>Employee Email</th>
+                            <th>Review</th>
+                        </tr>
+                    </thead>
+                    <tbody class="pending-reviews"> 
+                        <%for(let i=0;i<user.assigned_reviews.length;i++){%>
+                            <tr>
+                                <td><strong><%=user.assigned_reviews[i]._doc.employee_id%></strong></td>
+                                <td><strong><%=user.assigned_reviews[i]._doc.name%></strong></td>
+                                <td><strong><%=user.assigned_reviews[i]._doc.email%></strong></td>
+
+                                <td>
+                                    <a href="/feedback/<%=user.assigned_reviews[i].id%>">Review</a>
+                                </td>
+                            </tr>
+                            <%}%>   
+                    </tbody>
+                </table>
+                <%}%> 
+    </div>
+    <div class="review-completed-container">
+    <h3>Completed Reviews</h3>
+    <%if(completedReviewsCount==0){%>
+        <h4>OOPS! No reviewed reviews </h4>
+        <%}else{%>
+            <table>
+                <thead >
+                    <tr class="completed-review">
+                        <th>Emp ID</th>
+                        <th>Emp Name</th>
+                        <th>Emp Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(let i=0;i<user.completed_reviews.length;i++){%>
+                        <tr class="completed-review">
+                            <td><strong><%=user.completed_reviews[i]._doc.employee_id%></strong></td>
+                            <td><strong><%=user.completed_reviews[i]._doc.name%></strong></td>
+                            <td><strong><%=user.completed_reviews[i]._doc.email%></strong></td>
+
+                        </tr>
+                        <%}%>   
+                </tbody>
+            </table>
+            <%}%> 
+
+        <%}%>
+        
+
+</div>

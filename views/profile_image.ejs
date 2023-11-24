@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile-picture.css"/>
+</head>
+<body>
+    <div class="container">
+        <form action="/employee/update-profile-img/<%=user.id%>" enctype="multipart/form-data" method="POST">
+            <div class="profile-picture">
+                <img src="<% if (avatar ==null) { %>
+                        /images/avatar.jpg
+                    <%} else { %>
+                    <%=avatar%>
+                    <% } %>
+                    " alt="avatar"/>
+            </div>
+            <input type="file" name="avatar" placeholder="Profile Picture">
+            <div class="profile">
+                <h3><%=name%></h3>
+                <h3><%=employee_id%></h3>
+            </div>
+            <input type="submit" id="update-btn" value="Update">
+        </form>
+    </div>
+</body>
+</html>

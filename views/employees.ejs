@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/employees.css"/>
+<div class="employee-container">
+    <div class="employee-list-content">
+    
+        <table>
+            <thead>
+                <tr class="employee-table-header">
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Contact No.</th>
+                    <th>Email</th>
+                    <th>Is Admin?</th>
+                    <th>Last Date / Unlock Goal Setting</th>
+                </tr>
+            </thead>
+        <tbody>
+        <%for(let i =0;i<employees.length;i++){%>
+        
+            <tr>
+                <td><strong><%=employees[i].employee_id%></strong></td>
+                <td><strong><%=employees[i].name%></strong></td>
+                <td><strong><%=employees[i].contact_no%></strong></td>
+                <td><strong><%=employees[i].email%></strong></td>
+                <td><strong><%=employees[i].is_admin%></strong></td>
+                <td><%if(!employees[i].performance.goal_setting_unlocked){%><form action="/goals/unlock-goal/<%=employees[i].id%>" method="POST">
+                    <input type="date" name="date" required/>
+                    <input type="submit" value="Unlock"/>
+                </form>
+                <%}else{%>
+                    <strong><%=employees[i].performance.last_date%></strong>
+                    <%}%>
+            </td>
+                
+            </tr>
+            <%}%>
+        </tbody>
+        </table>
+        </div>
+         
+</div>
+
