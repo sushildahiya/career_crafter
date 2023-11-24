@@ -3,8 +3,7 @@ Employee Review System
 
 This project is an Employee Management System built using Express.js. It includes features for updating profile avatars, assigning and submitting feedback, setting goals, and user authentication.
 
-#Table of Contents
-* Employee Management System
+# Table of Contents
 * Table of Contents
 * Employee Controller
 * Feedback Controller
@@ -12,17 +11,17 @@ This project is an Employee Management System built using Express.js. It include
 * Home Controller
 * User Controller
 * Routes
-Employee Controller
-Update Avatar
+# Employee Controller
+## Update Avatar
 Handles the update of the user's avatar.
 
-Settings
+##Settings
 Renders the profile image settings page.
 
-Request Admin
+## Request Admin
 Requests admin status for the logged-in user.
 
-Accept Admin Request
+## Accept Admin Request
 Accepts admin request for a specific user.
 
 Reject Admin Request
