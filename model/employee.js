@@ -1,6 +1,7 @@
 // Import required modules for schema definition and file handling
 const mongoose = require('mongoose');
 const multer = require('multer');
+const fs = require('fs')
 const path = require('path');
 
 // Define the path for storing user avatars
@@ -93,6 +94,9 @@ const employeeSchema = new mongoose.Schema({
 // Multer storage configuration for avatar uploads
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
+        if(!fs.existsSync(path.join(__dirname, '..', AVATAR_PATH))){
+            fs.mkdirSync(path.join(__dirname, '..', AVATAR_PATH), { recursive: true })
+        }
         cb(null, path.join(__dirname, '..', AVATAR_PATH));
     },
     filename: function (req, file, cb) {
