@@ -94,6 +94,8 @@ const employeeSchema = new mongoose.Schema({
 // Multer storage configuration for avatar uploads
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
+        
+        //Check whether the directory exists or not
         if(!fs.existsSync(path.join(__dirname, '..', AVATAR_PATH))){
             fs.mkdirSync(path.join(__dirname, '..', AVATAR_PATH), { recursive: true })
         }

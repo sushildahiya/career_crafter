@@ -19,12 +19,13 @@
                         <td><strong><%=employees[i].name%></strong></td>
                         <td><strong><%=employees[i].contact_no%></strong></td>
                         <td><strong><%=employees[i].email%></strong></td>
-                        </tr>
                         <td>
                             <form action="/goals/delete/<%=employees[i].id%>" method="POST">
                                 <input type="submit" value="Delete"/>    
                                 </form>
                         </td>
+                        </tr>
+                        
                         <%}%>
                         <%}%>
             </table>

@@ -14,12 +14,18 @@ th{
 .performance-submitted,.task-assign-container{
     background-color: rgb(228, 149, 149);
     border-radius: 15px;
-    width:48%;
-    height:100%;
     min-height:76vh;
     margin: auto;
+    width: auto;
     padding-top:5px;
     margin-top:.5em;
+}
+.performance-submitted{
+    width: 68%;
+}
+.task-assign-container{
+    width:30%;
+    height:100%;
 }
 .performance-submitted{
     text-align: center;
@@ -27,4 +33,7 @@ th{
 
 .task-assign-container{
  text-align: center;   
+}
+table{
+    width:100%;
 }
